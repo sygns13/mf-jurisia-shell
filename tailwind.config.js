@@ -6,6 +6,15 @@ export default {
     content: ['./src/**/*.{html,ts,scss,css}', './index.html'],
     plugins: [PrimeUI],
     theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#f43f5e', // Este será tu color primario predeterminado (rojo)
+              light: '#fb7185',
+              dark: '#e11d48'
+            }
+          }
+        },
         screens: {
             sm: '576px',
             md: '768px',

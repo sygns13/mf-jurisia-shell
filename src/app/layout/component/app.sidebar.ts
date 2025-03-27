@@ -6,6 +6,7 @@ import { AppMenu } from './app.menu';
     standalone: true,
     imports: [AppMenu],
     templateUrl: './app.sidebar.html',
+    styleUrl: './app.sidebar.scss'
 })
 export class AppSidebar {
     constructor(public el: ElementRef) {}

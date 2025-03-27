@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'AlternoxBold';
+  src: url('/assets/fonts/AlternoxBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.nombre-app {
+  font-family: 'AlternoxBold', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.background-topbar {
+  background-color: #9B1918;
+}

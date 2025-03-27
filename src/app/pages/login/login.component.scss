@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'AlternoxBold';
+  src: url('/assets/fonts/AlternoxBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.nombre-app {
+  font-family: 'AlternoxBold', sans-serif;
+  font-size: 2rem; /* Puedes ajustar el tamaño de la fuente según lo necesites */
+  font-weight: bold; /* Opcional, si deseas que el texto sea negrita */
+}
+.login-container {
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  background-position: center; /* Centra la imagen */
+  min-height: 100vh; /* Asegura que cubra toda la altura de la pantalla */
+  min-width: 100vw; /* Asegura que cubra toda la anchura de la pantalla */
+  overflow: hidden;
+  animation: fadeImages 20s infinite;
+}
+@keyframes fadeImages {
+  0% {
+    background-image: url('/assets/img/img1.jpg');
+  }
+  25% {
+    background-image: url('/assets/img/img2.jpg');
+  }
+  50% {
+    background-image: url('/assets/img/img3.jpg');
+  }
+  75% {
+    background-image: url('/assets/img/img4.jpg');
+  }
+  100% {
+    background-image: url('/assets/img/img1.jpg');
+  }
+}
+
+
