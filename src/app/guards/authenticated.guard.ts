@@ -18,12 +18,13 @@ export const authenticatedGuard: CanMatchFn = async (
     if (isAuthenticated) {
       return true; // Permite el acceso a la ruta
     } else {
-      router.navigate(['/login']); // Redirige al login si no está autenticado
+      console.log('navigate /auth/login');
+      router.navigate(['/auth/login']); // Redirige al login si no está autenticado
       return false;
     }
   } catch (error) {
     console.error('Error en el guardia:', error);
-    router.navigate(['/login']); // Redirige al login en caso de error
+    router.navigate(['/auth/login']); // Redirige al login en caso de error
     return false;
   }
   
