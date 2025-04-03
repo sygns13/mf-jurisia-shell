@@ -16,6 +16,10 @@
       "AUTH_SESSION_ID_NAME": "session_jurisia",
 
       "API_PATH_SECURITY": "api/security/v1",
+      "API_PATH_CONSULTAIA": "api/consultaia/v1",
+
+
+      "CONSULTAIA_MF_URL"         : '' || 'http://localhost:4201',
 
     }
   
