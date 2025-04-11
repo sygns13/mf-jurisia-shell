@@ -29,7 +29,27 @@ import { Password } from 'primeng/password';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
+  ngOnInit(): void {
+    this.preloadImages([
+      '/assets/img/img1.jpg',
+      '/assets/img/img2.jpg',
+      '/assets/img/img3.jpg',
+      '/assets/img/img4.jpg'
+    ]);
 
+    // Introducimos un pequeño retraso para asegurarnos de que la animación inicie después de que la página esté completamente cargada.
+    setTimeout(() => {
+      // Aquí puedes activar la clase de animación después de un pequeño retraso
+      document.querySelector('.bg-login')?.classList.add('start-animation');
+    }, 900); // 200ms de retraso
+  }
+
+  preloadImages(images: string[]): void {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }
   @ViewChild('inputUsername', { static: false }) inputUsername!: ElementRef;
   @ViewChild('inputPassword', { static: false }) inputPassword!: Password;
 
@@ -53,11 +73,6 @@ export class LoginComponent implements OnInit {
     private service: MessageService,) {
 
     this.titleService.setTitle("Login");
-  }
-
-  ngOnInit() {
-    // Precargar imágenes de fondo
-    this.preloadBackgroundImages();
   }
 
   public logout() {
@@ -119,23 +134,7 @@ export class LoginComponent implements OnInit {
               const tokenData = helper.decodeToken(token);
               let exits = false;
               try{
-                console.log("llego aca /principal");
-                //window.location.href = '/principal';
                 this.router.navigate(['principal']);
-                /*
-                RouteIndex.menuItems.map((item) => {
-                  item.children.map((child) => {
-                    if (this.searchValue(tokenData.resource_access, child.role)) {
-                      exits = true;
-                      localStorage.setItem("changePasswordBO", res?.item?.changePassword);
-                      if(res.item.changePassword == 1){
-                        window.location.href = '/security-authorization/change-password';
-                      }else{
-                        window.location.href = '/welcome';
-                      }
-                    }
-                  });
-                });*/
               } catch(e){
                 window.location.reload();
               }
@@ -164,21 +163,6 @@ export class LoginComponent implements OnInit {
   }
   setFocusPassword() {
     this.inputPassword.input.nativeElement.focus();
-  }
-
-  preloadBackgroundImages() {
-    const imagePaths = [
-      '/assets/img/img1.jpg',
-      '/assets/img/img2.jpg',
-      '/assets/img/img3.jpg',
-      '/assets/img/img4.jpg'
-    ];
-
-    // Precargar cada imagen
-    imagePaths.forEach(path => {
-      const img = new Image();
-      img.src = path;
-    });
   }
 
 }
