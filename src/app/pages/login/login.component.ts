@@ -28,7 +28,7 @@ import { Password } from 'primeng/password';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   @ViewChild('inputUsername', { static: false }) inputUsername!: ElementRef;
   @ViewChild('inputPassword', { static: false }) inputPassword!: Password;
@@ -53,6 +53,11 @@ export class LoginComponent {
     private service: MessageService,) {
 
     this.titleService.setTitle("Login");
+  }
+
+  ngOnInit() {
+    // Precargar imágenes de fondo
+    this.preloadBackgroundImages();
   }
 
   public logout() {
@@ -82,7 +87,7 @@ export class LoginComponent {
       this.setFocusPassword();
       return;
     }
-    
+
     this.loginService.login(this.username, this.password).subscribe({
       next: (res: any) => {
           if (res.success) {
@@ -154,11 +159,26 @@ export class LoginComponent {
       });
   }
 
-  setFocusUsername() {    
+  setFocusUsername() {
     this.inputUsername.nativeElement.focus();
   }
-  setFocusPassword() {    
+  setFocusPassword() {
     this.inputPassword.input.nativeElement.focus();
+  }
+
+  preloadBackgroundImages() {
+    const imagePaths = [
+      '/assets/img/img1.jpg',
+      '/assets/img/img2.jpg',
+      '/assets/img/img3.jpg',
+      '/assets/img/img4.jpg'
+    ];
+
+    // Precargar cada imagen
+    imagePaths.forEach(path => {
+      const img = new Image();
+      img.src = path;
+    });
   }
 
 }

@@ -5,34 +5,39 @@
   font-style: normal;
 }
 .nombre-app {
-  font-family: 'AlternoxBold', sans-serif;
-  font-size: 2rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
   font-weight: bold;
+  text-shadow: 3px 3px 5px rgb(74 74 74 / 50%);
 }
 .login-container {
+  /* Establecer un color de fondo de base que coincida con el tono general de tus imágenes */
+  background-color: #333; /* Ajusta este color según tus imágenes */
+  background-image: url('/assets/img/img1.jpg'); /* Imagen inicial explícita */
   background-size: cover;
   background-position: center;
   min-height: 100vh;
   min-width: 100vw;
   overflow: hidden;
   animation: fadeImages 20s infinite;
+  /* Agregar un delay negativo para comenzar en un punto intermedio de la animación */
+  animation-delay: -0.1s;
 }
+
 @keyframes fadeImages {
-  0% {
+  0%, 20% {
     background-image: url('/assets/img/img1.jpg');
   }
-  25% {
+  25%, 45% {
     background-image: url('/assets/img/img2.jpg');
   }
-  50% {
+  50%, 70% {
     background-image: url('/assets/img/img3.jpg');
   }
-  75% {
+  75%, 95% {
     background-image: url('/assets/img/img4.jpg');
   }
   100% {
     background-image: url('/assets/img/img1.jpg');
   }
 }
-
-
