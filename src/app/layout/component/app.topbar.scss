@@ -1,11 +1,8 @@
-@font-face {
-  font-family: 'AlternoxBold';
-  src: url('/assets/fonts/AlternoxBold.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+.newcolor {
+  color: #ffffff !important;
 }
 .nombre-app {
-  font-family: 'AlternoxBold', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 2rem;
   font-weight: bold;
   color: #ffffff;
@@ -13,3 +10,92 @@
 .background-topbar {
   background-color: #9B1918;
 }
+
+.apubot-anim {
+  animation: headWobble 1.5s ease-in-out infinite;
+}
+
+@keyframes headWobble {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+:host {
+  button {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+
+      .layout-menuitem-text,
+      .layout-menuitem-icon,
+      .layout-submenu-toggler {
+        color: #f8f9fa !important;
+      }
+    }
+  }
+  button.active-route {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    .layout-menuitem-text,
+    .layout-menuitem-icon {
+      font-weight: bold;
+    }
+  }
+}
+
+.profile-panel {
+  position: absolute;
+  top: 4.5rem;
+  right: 1rem;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  z-index: 999;
+
+  .profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .profile-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 0rem;
+      animation: headWobble 1.5s ease-in-out infinite;
+    }
+
+    .profile-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 0.2rem;
+    }
+
+    .profile-role,
+    .profile-since {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 0.2rem;
+    }
+
+    .profile-actions {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+}
+
+
+
+

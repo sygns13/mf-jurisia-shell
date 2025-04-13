@@ -4,49 +4,38 @@
             <i class="pi pi-bars" style="color: #ffffff"></i>
         </button>
         <a class="layout-topbar-logo" routerLink="/">
-            <img src="/assets/img/logo-only.png" alt="Logo" class="shrink-0 mx-auto" style="height: 2.8rem;"/>
-            <span class="nombre-app">JURIS IA</span>
+            <img src="/assets/animations/ApuBotHead2.svg" alt="Logo" class="shrink-0 mx-auto apubot-anim" style="height: 2.5rem;"/>
+            <span class="nombre-app">ApuBot</span>
         </a>
     </div>
     <div class="layout-topbar-actions">
         <div class="layout-config-menu">
-            <button type="button" class="layout-topbar-action" (click)="toggleDarkMode()">
+            <button type="button" class="layout-topbar-action newcolor" (click)="toggleDarkMode()">
                 <i [ngClass]="{ 'pi ': true, 'pi-moon': layoutService.isDarkTheme(), 'pi-sun': !layoutService.isDarkTheme() }"></i>
             </button>
-            <div class="relative">
-                <button
-                    class="layout-topbar-action layout-topbar-action-highlight"
-                    pStyleClass="@next"
-                    enterFromClass="hidden"
-                    enterActiveClass="animate-scalein"
-                    leaveToClass="hidden"
-                    leaveActiveClass="animate-fadeout"
-                    [hideOnOutsideClick]="true"
-                >
-                    <i class="pi pi-palette"></i>
-                </button>
-                <app-configurator />
-            </div>
         </div>
 
-        <button class="layout-topbar-menu-button layout-topbar-action" pStyleClass="@next" enterFromClass="hidden" enterActiveClass="animate-scalein" leaveToClass="hidden" leaveActiveClass="animate-fadeout" [hideOnOutsideClick]="true">
+        <button class="layout-topbar-menu-button layout-topbar-action newcolor" pStyleClass="@next" enterFromClass="hidden" enterActiveClass="animate-scalein" leaveToClass="hidden" leaveActiveClass="animate-fadeout" [hideOnOutsideClick]="true">
             <i class="pi pi-ellipsis-v"></i>
         </button>
 
         <div class="layout-topbar-menu hidden lg:block">
             <div class="layout-topbar-menu-content">
-                <button type="button" class="layout-topbar-action">
-                    <i class="pi pi-calendar"></i>
-                    <span>Calendar</span>
+                <button type="button" class="layout-topbar-action newcolor" (click)="toggleProfilePanel()">
+                  <i class="pi pi-user"></i>
+                  <span>Profile</span>
                 </button>
-                <button type="button" class="layout-topbar-action">
-                    <i class="pi pi-inbox"></i>
-                    <span>Messages</span>
-                </button>
-                <button type="button" class="layout-topbar-action">
-                    <i class="pi pi-user"></i>
-                    <span>Profile</span>
-                </button>
+                <div class="profile-panel" *ngIf="showProfilePanel">
+                  <div class="profile-content">
+                    <img src="/assets/animations/ApuBotHead2.svg" class="profile-img" />
+                    <div class="profile-name">Alexander Pierce</div>
+                    <div class="profile-role">78945612</div>
+                    <div class="profile-since">1er Juzgado de Familia</div>
+                    <div class="profile-actions">
+                      <p-button label="Cerrar Sesión" styleClass="p-button-danger w-full" (click)="logout()"></p-button>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
     </div>

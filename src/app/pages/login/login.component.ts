@@ -37,11 +37,17 @@ export class LoginComponent implements OnInit {
       '/assets/img/img4.jpg'
     ]);
 
-    // Introducimos un pequeño retraso para asegurarnos de que la animación inicie después de que la página esté completamente cargada.
     setTimeout(() => {
-      // Aquí puedes activar la clase de animación después de un pequeño retraso
-      document.querySelector('.bg-login')?.classList.add('start-animation');
-    }, 900); // 200ms de retraso
+      const images = document.querySelectorAll('.background-img');
+      let current = 0;
+
+      setInterval(() => {
+        images.forEach((img, i) => {
+          img.classList.toggle('active', i === current);
+        });
+        current = (current + 1) % images.length;
+      }, 6000); // cambia cada 6 segundos
+    }, 500);
   }
 
   preloadImages(images: string[]): void {

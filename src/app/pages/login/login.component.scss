@@ -46,35 +46,48 @@
 .titulo-con-barras::after {
   content: "";
   display: inline-block;
-  width: 2rem;                 /* Ajusta el tamaño que desees */
-  height: 3px;                 /* Grosor de la barra */
-  background-color: #7e7660;   /* Color de las barras */
-  margin: 0 0.5rem;             /* Separación horizontal entre la barra y el texto */
+  width: 2rem;
+  height: 3px;
+  background-color: #7e7660;
+  margin: 0 0.5rem;
 }
-:host ::ng-deep .bg-login {
+.bg-login {
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
+
+.background-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.background-img {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  animation: backgroundAnimation 20s infinite;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 0;
+}
 
-  // Configura la secuencia de imágenes que cambiarán cada 5 segundos sin transición suave
-  @keyframes backgroundAnimation {
-    0% {
-      background-image: url('/assets/img/img1.jpg');
-    }
-    25% {
-      background-image: url('/assets/img/img2.jpg');
-    }
-    50% {
-      background-image: url('/assets/img/img3.jpg');
-    }
-    75% {
-      background-image: url('/assets/img/img4.jpg');
-    }
-    100% {
-      background-image: url('/assets/img/img1.jpg');
-    }
-  }
+.background-img.img1 {
+  background-image: url('/assets/img/img2.jpg');
+}
+.background-img.img2 {
+  background-image: url('/assets/img/img3.jpg');
+}
+.background-img.img3 {
+  background-image: url('/assets/img/img4.jpg');
+}
+.background-img.img4 {
+  background-image: url('/assets/img/img1.jpg');
+}
+
+.background-img.active {
+  opacity: 1;
+  z-index: 1;
 }
