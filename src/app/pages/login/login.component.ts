@@ -99,12 +99,12 @@ export class LoginComponent implements OnInit {
     this.logout();
 
     if(this.username == null || this.username.trim().length == 0){
-      this.service.add({ severity: 'error', summary: 'Error', detail: 'Ingrese el Username' });
+      this.service.add({ severity: 'error', summary: 'Error', detail: 'Ingrese su usuario' });
       this.setFocusUsername();
       return;
     }
     if(this.password == null || this.password.trim().length == 0){
-      this.service.add({ severity: 'error', summary: 'Error', detail: 'Ingrese el Password' });
+      this.service.add({ severity: 'error', summary: 'Error', detail: 'Ingrese su contraseña' });
       this.setFocusPassword();
       return;
     }

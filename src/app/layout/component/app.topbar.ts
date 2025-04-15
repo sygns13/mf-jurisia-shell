@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
+import { AuthService } from '../../services/auth.service';
 import { AppConfigurator } from './app.configurator';
 import { LayoutService } from '../service/layout.service';
 import { Button } from 'primeng/button';
@@ -17,7 +18,7 @@ export class AppTopbar {
     items!: MenuItem[];
     showProfilePanel = false;
 
-    constructor(public layoutService: LayoutService) {}
+    constructor(public layoutService: LayoutService,private authService: AuthService) {}
 
     toggleDarkMode() {
         this.layoutService.layoutConfig.update((state) => ({ ...state, darkTheme: !state.darkTheme }));
@@ -27,7 +28,6 @@ export class AppTopbar {
     }
 
     logout() {
-        // Aquí pones tu lógica de logout (AuthService, redirección, etc.)
-        console.log('Cerrar sesión');
+        this.authService.logOut();
     }
 }
