@@ -30,9 +30,9 @@ export class AppMenu {
             {
                 label: 'Métricas',
                 items: [
-                    { label: 'Documentos Generados', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/metricas/documentos-generados'] },
-                    { label: 'Consulta a la IA', icon: 'pi pi-fw pi-chart-line', routerLink: ['/metricas/consulta-ia'] },
-                    { label: 'Uso de ChatBot', icon: 'pi pi-fw pi-telegram', routerLink: ['/metricas/chatbot'] },
+                    { label: 'Documentos Generados', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/metricas/documentos-generados'], underConstruction: true },
+                    { label: 'Consulta a la IA', icon: 'pi pi-fw pi-chart-line', routerLink: ['/metricas/consulta-ia'], underConstruction: true },
+                    { label: 'Uso de ChatBot', icon: 'pi pi-fw pi-telegram', routerLink: ['/metricas/chatbot'], underConstruction: true }
 
                 ]
             },

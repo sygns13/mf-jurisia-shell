@@ -6,12 +6,13 @@ import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { RippleModule } from 'primeng/ripple';
 import { MenuItem } from 'primeng/api';
+import { DialogModule } from 'primeng/dialog';
 import { LayoutService } from '../service/layout.service';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: '[app-menuitem]',
-    imports: [CommonModule, RouterModule, RippleModule],
+    imports: [CommonModule, RouterModule, RippleModule,DialogModule],
     templateUrl: './app.menuitem.html',
     styleUrl: './app.menuitem.scss',
     animations: [
@@ -35,18 +36,13 @@ import { LayoutService } from '../service/layout.service';
 })
 export class AppMenuitem {
     @Input() item!: MenuItem;
-
     @Input() index!: number;
-
     @Input() @HostBinding('class.layout-root-menuitem') root!: boolean;
-
     @Input() parentKey!: string;
-
     active = false;
-
     menuSourceSubscription: Subscription;
-
     menuResetSubscription: Subscription;
+    showUnderConstructionDialog: boolean = false;
 
     key: string = '';
 
@@ -94,18 +90,22 @@ export class AppMenuitem {
     }
 
     itemClick(event: Event) {
-        // avoid processing disabled items
         if (this.item.disabled) {
             event.preventDefault();
             return;
         }
 
-        // execute command
+        // 🚧 Si está en construcción, mostrar advertencia y cancelar navegación
+        if (this.item['underConstruction']) {
+            event.preventDefault();
+            this.showUnderConstructionDialog = true;
+            return;
+        }
+
         if (this.item.command) {
             this.item.command({ originalEvent: event, item: this.item });
         }
 
-        // toggle active state
         if (this.item.items) {
             this.active = !this.active;
         }
