@@ -22,8 +22,8 @@ export class AppMenu {
             {
                 label: 'Módulos Funcionales',
                 items: [
-                    { label: 'Exp. Judicial', icon: 'pi pi-fw pi-file', routerLink: ['/expedientes/generar-documento'] },
-                    { label: 'Consulta a la IA', icon: 'pi pi-fw pi-microchip-ai', routerLink: ['/consultas/chatgpt'] },
+                    { label: 'Consulta con ApuBot', icon: 'pi pi-fw pi-microchip-ai', routerLink: ['/consultas/chatgpt'] },
+                    { label: 'Expediente Judicial', icon: 'pi pi-fw pi-file', routerLink: ['/expedientes/generar-documento'] },
 
                 ]
             },
