@@ -19,6 +19,7 @@
         </a>
     </div>
     <div class="col-span-12 lg:col-span-6 xl:col-span-4">
+      <a (click)="abrirDialogEnConstruccion()" style="cursor: pointer;">
         <div class="card mb-0">
             <div class="flex justify-between mb-4">
                 <div>
@@ -31,8 +32,10 @@
             </div>
             <span class="text-primary font-medium">1 Documento Generado</span>
         </div>
+      </a>
     </div>
     <div class="col-span-12 lg:col-span-6 xl:col-span-4">
+      <a (click)="abrirDialogEnConstruccion()" style="cursor: pointer;">
         <div class="card mb-0">
             <div class="flex justify-between mb-4">
                 <div>
@@ -45,6 +48,7 @@
             </div>
             <span class="text-primary font-medium">20 Reportes Descargados</span>
         </div>
+      </a>
     </div>
     <!--<div class="col-span-12 lg:col-span-6 xl:col-span-3">
         <div class="card mb-0">
@@ -68,3 +72,28 @@
     <div class="col-span-12 xl:col-span-6">
     </div>
 </div>
+
+<p-dialog
+  [(visible)]="showUnderConstructionDialog"
+  modal="true"
+  [closable]="true"
+  [dismissableMask]="true"
+  [draggable]="false"
+  [style]="{ width: '350px' }"
+>
+    <ng-template pTemplate="header">
+      <div class="dialog-header-centered">
+        <i class="pi pi-info-circle icon-alert" style="font-size: 1.2rem;color: #f97316"></i>
+        <span class="title-text" style="font-size: 1.2rem;margin-left: 0.8rem">Módulo en construcción</span>
+      </div>
+    </ng-template>
+
+    <div class="dialog-content">
+        <object
+          data="assets/animations/ApuBotTyping.svg"
+          type="image/svg+xml"
+          class="typing-animation"
+        ></object>
+        <p style="font-size: 1.2rem!important;">Este módulo está en construcción.</p>
+    </div>
+</p-dialog>

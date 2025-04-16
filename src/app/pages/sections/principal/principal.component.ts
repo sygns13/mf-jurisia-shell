@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { DialogModule } from 'primeng/dialog';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-principal',
-  imports: [CommonModule],
+  imports: [CommonModule,DialogModule],
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.scss'
 })
 export class PrincipalComponent {
+
+  showUnderConstructionDialog: boolean = false;
 
   constructor(
       private router: Router,
@@ -18,11 +21,10 @@ export class PrincipalComponent {
 
   navegarConsultaIA() {
     this.router.navigate(['/consultas']);  // Ruta estática
-    // O con parámetros
-    /* this.router.navigate(['/ruta', parametro], { 
-      queryParams: { usuario: '123' },
-      state: { data: 'oculto' }
-    }); */
+  }
+
+  abrirDialogEnConstruccion() {
+    this.showUnderConstructionDialog = true;
   }
 
 }

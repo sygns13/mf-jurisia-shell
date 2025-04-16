@@ -23,7 +23,7 @@ export class AppMenu {
                 label: 'Módulos Funcionales',
                 items: [
                     { label: 'Consulta con ApuBot', customIconUrl: 'assets/img/apuBotIcon-w.svg', routerLink: ['/consultas/apubot'] },
-                    { label: 'Expediente Judicial', icon: 'pi pi-fw pi-file', routerLink: ['/expedientes/generar-documento'] },
+                    { label: 'Expediente Judicial', icon: 'pi pi-fw pi-file', routerLink: ['/expedientes/generar-documento'],underConstruction: true },
 
                 ]
             },
