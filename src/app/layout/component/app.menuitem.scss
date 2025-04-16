@@ -10,28 +10,6 @@
   text-align: center;
   padding: 0rem;
 }
-.dialog-header-centered {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  padding-right: 2rem; // espacio para que no se solape con el ícono de cerrar
-}
-
-.dialog-header-centered .icon-alert {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  color: #f97316;
-}
-
-.dialog-header-centered .title-text {
-  display: inline-block!important;
-  font-size: 1.3rem!important;
-  font-weight: 600!important;
-  margin-left: 1.2rem!important;
-}
 
 .typing-animation {
   width: 160px;
