@@ -22,7 +22,7 @@ export class AppMenu {
             {
                 label: 'Módulos Funcionales',
                 items: [
-                    { label: 'Consulta con ApuBot', icon: 'pi pi-fw pi-microchip-ai', routerLink: ['/consultas/chatgpt'] },
+                    { label: 'Consulta con ApuBot', customIconUrl: 'assets/img/apuBotIcon-w.svg', routerLink: ['/consultas/apubot'] },
                     { label: 'Expediente Judicial', icon: 'pi pi-fw pi-file', routerLink: ['/expedientes/generar-documento'] },
 
                 ]

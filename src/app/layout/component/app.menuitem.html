@@ -1,7 +1,17 @@
 <ng-container>
     <div *ngIf="root && item.visible !== false" class="layout-menuitem-root-text newcolor">{{ item.label }}</div>
     <a *ngIf="(!item.routerLink || item.items) && item.visible !== false" [attr.href]="item.url" (click)="itemClick($event)" [ngClass]="item.styleClass" [attr.target]="item.target" tabindex="0" pRipple>
-        <i [ngClass]="item.icon" class="layout-menuitem-icon" style="font-size: 5rem!important;" ></i>
+        <ng-container *ngIf="item['customIconUrl']; else defaultIcon">
+          <img [src]="item['customIconUrl']"
+               alt="icon"
+               class="layout-menuitem-icon newcolor custom-icon"
+               width="32"
+               height="32" />
+        </ng-container>
+        <ng-template #defaultIcon>
+          <i [ngClass]="item.icon" class="layout-menuitem-icon newcolor"></i>
+        </ng-template>
+
         <span class="layout-menuitem-text newcolor">{{ item.label }}</span>
         <i class="pi pi-fw pi-angle-down layout-submenu-toggler newcolor" *ngIf="item.items"></i>
     </a>
@@ -23,7 +33,17 @@
         tabindex="0"
         pRipple
     >
-        <i [ngClass]="item.icon" class="layout-menuitem-icon newcolor"></i>
+        <ng-container *ngIf="item['customIconUrl']; else defaultIcon">
+          <img [src]="item['customIconUrl']"
+               alt="icon"
+               class="layout-menuitem-icon newcolor custom-icon"
+               width="26"
+               height="26" />
+        </ng-container>
+        <ng-template #defaultIcon>
+          <i [ngClass]="item.icon" class="layout-menuitem-icon newcolor" style="font-size: 1.45rem!important;"></i>
+        </ng-template>
+
         <span class="layout-menuitem-text newcolor">{{ item.label }}</span>
         <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
     </a>
