@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 const environment = (window as any).__env as any;;
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { LoginService } from './login.service';
+import { UserSession } from '../interfaces/session-id';
 
 
 @Injectable({
@@ -13,9 +15,12 @@ export class AuthService {
   private urlLogout: string = `${environment.API_GATEWAY_URL}/${environment.API_PATH_SECURITY}/auth/logout`;
   private urlVerifySession: string = `${environment.API_GATEWAY_URL}/${environment.API_PATH_SECURITY}/auth/verify-session`;
 
+  sessionId: UserSession = {} as UserSession;
+
   constructor(
     private http: HttpClient,
     private router: Router,
+    private loginService: LoginService,
   ) { }
 
   async isLogin(): Promise<boolean | undefined> {
@@ -32,10 +37,12 @@ export class AuthService {
     }
 
     // Verificar si el token ha expirado
+    /*
     if (helper.isTokenExpired(token)) {
       this.logOut();
       return false;
     }
+    */
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json"); // Cambiamos a JSON
@@ -61,17 +68,56 @@ export class AuthService {
 
       // Si la respuesta es exitosa, el usuario está autenticado
       if (response.ok) {
-        return true;
-      } else {
-        this.logOut();
-        return false;
+        const data = await response.json();
+
+        if(data.success) {
+          return true;
+        }
+        
       }
+
+      //Seccion Refresh Token
+      const res = await this.loginService.refreshToken().toPromise();
+
+      if (res.success) {
+        this.sessionId = res.user;
+
+        const token = this.sessionId.token.access_token;
+
+        localStorage.setItem(
+          btoa(environment.AUTH_TOKEN_NAME),
+          token
+        );
+        localStorage.setItem(
+          btoa(environment.AUTH_REFRESH_TOKEN),
+          this.sessionId.token.refresh_token
+        );
+
+        localStorage.setItem(
+          btoa(environment.AUTH_USERNAME_NAME),
+          this.sessionId.username
+        );
+
+        localStorage.setItem(
+          btoa(environment.AUTH_SESSION_ID_NAME),
+          this.sessionId.userSessionsId
+        );
+
+        if (token) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      
+      this.logOut();
+      return false;
+     
     } catch (error) {
       console.error('Error verificando la sesión:', error);
       this.logOut();
       return false;
     }
-    
   }
 
   logOut() {
