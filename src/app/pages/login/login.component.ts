@@ -31,10 +31,10 @@ import { Password } from 'primeng/password';
 export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.preloadImages([
-      '/assets/img/img1.jpg',
-      '/assets/img/img2.jpg',
-      '/assets/img/img3.jpg',
-      '/assets/img/img4.jpg'
+      'assets/img/img1.jpg',
+      'assets/img/img2.jpg',
+      'assets/img/img3.jpg',
+      'assets/img/img4.jpg'
     ]);
 
     setTimeout(() => {
