@@ -42,6 +42,21 @@
     border: 1px solid var(--p-button-primary-hover-border-color);
   }
 }
+.p-inputtext:enabled:focus{
+  --p-button-primary-border-color: #f43f5e;
+  border-color: var(--p-button-primary-border-color);
+  box-shadow: var(--p-inputtext-focus-ring-shadow);
+  outline: var(--p-inputtext-focus-ring-width) var(--p-inputtext-focus-ring-style) var(--p-inputtext-focus-ring-color);
+  outline-offset:var(--p-inputtext-focus-ring-offset);
+}
+:host ::ng-deep .p-password input:enabled:focus {
+  --p-button-primary-border-color: #f43f5e;
+  border-color: var(--p-button-primary-border-color);
+  box-shadow: var(--p-inputtext-focus-ring-shadow);
+  outline: var(--p-inputtext-focus-ring-width) var(--p-inputtext-focus-ring-style) var(--p-inputtext-focus-ring-color);
+  outline-offset: var(--p-inputtext-focus-ring-offset);
+}
+
 .divGradient{
   --primary-color: #f43f5e;
   border-radius: 56px;
