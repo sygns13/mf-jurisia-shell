@@ -27,7 +27,9 @@ export interface UserSession {
     tipoUser: string;
     token: TokenData; // Relación con la interfaz TokenData
 }
-
+export interface totalConversaciones {
+    totalConversaciones: number;
+  }
 export interface TokenData {
     access_token: string;
     expires_in: number;
