@@ -28,9 +28,9 @@
                 <div class="profile-panel" *ngIf="showProfilePanel">
                   <div class="profile-content">
                     <img src="assets/animations/ApuBotHead.svg" class="profile-img" />
-                    <div class="profile-name">Alexander Pierce</div>
-                    <div class="profile-role">78945612</div>
-                    <div class="profile-since">1er Juzgado de Familia</div>
+                    <div class="profile-name">{{ apellidos }} {{ nombres }}</div>
+                    <div class="profile-role">{{ documento }}</div>
+                    <div class="profile-since">{{ dependencia }}</div>
                     <div class="profile-actions">
                       <p-button label="Cerrar Sesión" styleClass="p-button-danger w-full" (click)="logout()"></p-button>
                     </div>

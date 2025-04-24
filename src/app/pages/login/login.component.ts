@@ -134,7 +134,7 @@ export class LoginComponent implements OnInit {
               btoa(environment.AUTH_SESSION_ID_NAME),
               this.sessionId.userSessionsId
             );
-
+            localStorage.setItem('session_user_data', JSON.stringify(this.sessionId));
             if (token) {
               const helper = new JwtHelperService();
               const tokenData = helper.decodeToken(token);
