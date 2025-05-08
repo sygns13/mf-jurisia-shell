@@ -19,10 +19,7 @@ export interface UserSession {
     nombreDependencia: string;
     codigoDependencia: string;
     siglaDependencia: string;
-    idCargo: number;
-    nombreCargo: string;
-    codigoCargo: string;
-    siglaCargo: string;
+    cargo: string;
     idTipoUser: number;
     tipoUser: string;
     token: TokenData; // Relación con la interfaz TokenData

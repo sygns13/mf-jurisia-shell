@@ -22,6 +22,7 @@ export class AppTopbar {
     apellidos: string = '';
     documento: string = '';
     dependencia: string = '';
+    cargo: string = '';
     showProfilePanel = false;
 
     constructor(public layoutService: LayoutService,private authService: AuthService) {}
@@ -46,6 +47,7 @@ export class AppTopbar {
         this.apellidos = user.apellidos;
         this.documento = user.documento;
         this.dependencia = user.nombreDependencia;
+        this.cargo = user.cargo;
       }
     }
     toggleDarkMode() {
