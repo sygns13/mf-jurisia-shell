@@ -23,6 +23,15 @@ export const authRoutes: Routes = [
                         remoteEntry: `${environment.CONSULTAIA_MF_URL}/remoteEntry.js?ts=${Date.now()}`,
                         exposedModule: './routes',
                     }).then((m) => m.routes),
+            },
+            {
+                path: 'expedientes',
+                loadChildren: () =>
+                    loadRemoteModule({
+                        type: 'module',
+                        remoteEntry: `${environment.EXPEDIENTES_MF_URL}/remoteEntry.js?ts=${Date.now()}`,
+                        exposedModule: './routes',
+                    }).then((m) => m.routes),
             }
             /* {
                 path: 'modulo1',

@@ -21,6 +21,7 @@
 
 
       "CONSULTAIA_MF_URL"         : '' || 'http://localhost:4201',
+      "EXPEDIENTES_MF_URL"         : '' || 'http://localhost:4202',
 
     }
   

@@ -41,7 +41,7 @@
 						"main": "src/main.ts",
 						"extraWebpackConfig": "webpack.config.js",
 						"commonChunk": false,
-						"baseHref": "/apubot/"
+						"baseHref": "/"
 					},
 					"configurations": {
 						"production": {
