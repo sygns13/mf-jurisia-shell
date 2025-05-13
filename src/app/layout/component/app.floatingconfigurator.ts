@@ -6,7 +6,7 @@ import { LayoutService } from '../service/layout.service';
 
 @Component({
     selector: 'app-floating-configurator',
-    imports: [ButtonModule, StyleClassModule, AppConfigurator],
+    imports: [ButtonModule, StyleClassModule],
     templateUrl: './app.floatingconfigurator.html',
 })
 export class AppFloatingConfigurator {
