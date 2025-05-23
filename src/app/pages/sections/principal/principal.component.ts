@@ -29,6 +29,9 @@ export class PrincipalComponent {
   navegarConsultaIA() {
     this.router.navigate(['/consultas']);  // Ruta estática
   }
+  navegarConsultaExpediente() {
+    this.router.navigate(['/expedientes/generar-documento']);  // Ruta estática
+  }
 
   abrirDialogEnConstruccion() {
     this.showUnderConstructionDialog = true;
