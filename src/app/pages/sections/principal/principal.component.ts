@@ -33,6 +33,10 @@ export class PrincipalComponent {
     this.router.navigate(['/expedientes/generar-documento']);  // Ruta estática
   }
 
+  navegarMetricasDocumentosGenerados() {
+    this.router.navigate(['/metricas']);  // Ruta estática
+  }
+
   abrirDialogEnConstruccion() {
     this.showUnderConstructionDialog = true;
   }
