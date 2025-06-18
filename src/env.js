@@ -19,6 +19,7 @@
       "API_PATH_SECURITY": "api/security/v1",
       "API_PATH_CONSULTAIA": "api/consultaia/v1",
       "API_PATH_EXPEDIENTES": "api/expedientes/v1",
+      "API_PATH_METRICAS": "api/metricas/v1",
 
 
       "CONSULTAIA_MF_URL"         : '' || 'http://localhost:4201',
@@ -26,5 +27,5 @@
       "METRICAS_MF_URL"         : '' || 'http://localhost:4203',
 
     }
-  
+
 }(this));
