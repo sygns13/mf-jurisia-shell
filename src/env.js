@@ -23,6 +23,7 @@
 
     "CONSULTAIA_MF_URL"         : '' || 'http://172.17.16.95/mf_jurisia_consultaia',
     "EXPEDIENTES_MF_URL"         : '' || 'http://172.17.16.95/mf_jurisia_expedientes',
+      "METRICAS_MF_URL"         : '' || 'http://localhost:4203',
 
   }
 
