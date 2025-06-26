@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { LoginService } from 'src/app/services/login.service';
 import { totalConversaciones } from 'src/app/interfaces/session-id';
+import { totalDocsGenerados } from 'src/app/interfaces/session-id';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -16,6 +17,7 @@ export class PrincipalComponent {
 
   showUnderConstructionDialog: boolean = false;
   totalConversaciones: number = 0;
+  totalDocsGenerados: number = 0;
 
   constructor(
       private router: Router,private loginService: LoginService
@@ -24,6 +26,7 @@ export class PrincipalComponent {
 
   ngOnInit(): void {
     this.consultarTotalConversaciones();
+    this.consultarTotalDocsGenerados();
   }
 
   navegarConsultaIA() {
@@ -47,6 +50,16 @@ export class PrincipalComponent {
       },
       error: (err) => {
         console.error('Error al obtener total de conversaciones:', err);
+      }
+    });
+  }
+  consultarTotalDocsGenerados() {
+    this.loginService.getTotalDocsGenerados().subscribe({
+      next: (data: totalDocsGenerados) => {
+        this.totalDocsGenerados = data.totalDocsGenerados;
+      },
+      error: (err) => {
+        console.error('Error al obtener total de documentos generados:', err);
       }
     });
   }

@@ -4,11 +4,13 @@ const environment = (window as any).__env as any;
 import { Router } from '@angular/router';
 import { IUserData } from '../layout/interfaces/user-data';
 import { totalConversaciones } from '../interfaces/session-id';
+import { totalDocsGenerados } from '../interfaces/session-id';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs/operators';
 import { of } from 'rxjs';
 const baseUrl = `${environment.API_GATEWAY_URL}/${environment.API_PATH_CONSULTAIA}`;
+const baseUrlM = `${environment.API_GATEWAY_URL}/${environment.API_PATH_METRICAS}`;
 
 
 @Injectable({
@@ -61,5 +63,8 @@ export class LoginService {
 
   getTotalConversation(): Observable<totalConversaciones> {
     return this.http.get<totalConversaciones>(`${baseUrl}/chatgpt/gettotaloperaciones`);
+  }
+  getTotalDocsGenerados(): Observable<totalDocsGenerados> {
+    return this.http.get<totalDocsGenerados>(`${baseUrlM}/documento-generado-ia/gettotaloperaciones`);
   }
 }

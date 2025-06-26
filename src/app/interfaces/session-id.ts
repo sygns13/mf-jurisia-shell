@@ -27,6 +27,9 @@ export interface UserSession {
 export interface totalConversaciones {
     totalConversaciones: number;
   }
+  export interface totalDocsGenerados {
+    totalDocsGenerados: number;
+  }
 export interface TokenData {
     access_token: string;
     expires_in: number;
