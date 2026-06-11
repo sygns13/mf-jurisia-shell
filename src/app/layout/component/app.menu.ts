@@ -36,6 +36,16 @@ export class AppMenu {
 
                 ]
             },
+            {
+                label: 'Usuarios',
+                items: [
+                    { label: 'Gestión de Instancias', icon: 'pi pi-sitemap', routerLink: ['/metricas/gestion-instancias'], underConstruction: false },
+                    { label: 'Gestión de Roles', icon: 'pi pi-shield', routerLink: ['/metricas/consulta-ia'], underConstruction: false },
+                    { label: 'Gestión de Usuarios', icon: 'pi pi-fw pi-users', routerLink: ['/metricas/gestion-usuarios'], underConstruction: false },
+                    /*{ label: 'Uso de ChatBot', icon: 'pi pi-fw pi-telegram', routerLink: ['/metricas/chatbot'], underConstruction: false } */
+
+                ]
+            },
         ];
     }
 }
