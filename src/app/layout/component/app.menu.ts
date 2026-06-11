@@ -24,7 +24,7 @@ export class AppMenu {
                 items: [
                     { label: 'Consulta con ApuBot', customIconUrl: 'assets/img/apuBotIcon-w.svg', routerLink: ['/consultas/apubot'] },
                     { label: 'Expediente Judicial', icon: 'pi pi-fw pi-file', routerLink: ['/expedientes/generar-documento'] },
-
+                    { label: 'Calificar Demanda', icon: 'pi pi-fw pi-building-columns', routerLink: ['/expedientes/calificar-demanda'] },
                 ]
             },
             {

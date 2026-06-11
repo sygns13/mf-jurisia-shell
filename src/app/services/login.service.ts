@@ -4,7 +4,7 @@ const environment = (window as any).__env as any;
 import { Router } from '@angular/router';
 import { IUserData } from '../layout/interfaces/user-data';
 import { totalConversaciones } from '../interfaces/session-id';
-import { totalDocsGenerados } from '../interfaces/session-id';
+import { totalDocsGenerados,totalDemandasCalificadas } from '../interfaces/session-id';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs/operators';
@@ -66,5 +66,8 @@ export class LoginService {
   }
   getTotalDocsGenerados(): Observable<totalDocsGenerados> {
     return this.http.get<totalDocsGenerados>(`${baseUrlM}/documento-generado-ia/gettotaloperaciones`);
+  }
+  getTotalExpCalificados(): Observable<totalDemandasCalificadas> {
+    return this.http.get<totalDemandasCalificadas>(`${baseUrlM}/demandas-calificadas/gettotaloperaciones`);
   }
 }
