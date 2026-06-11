@@ -30,6 +30,9 @@ export interface totalConversaciones {
   export interface totalDocsGenerados {
     totalDocsGenerados: number;
   }
+  export interface totalDemandasCalificadas {
+    totalDemandasCalificadas: number;
+  }
 export interface TokenData {
     access_token: string;
     expires_in: number;

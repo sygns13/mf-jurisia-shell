@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import { LoginService } from 'src/app/services/login.service';
-import { totalConversaciones } from 'src/app/interfaces/session-id';
+import { totalConversaciones, totalDemandasCalificadas } from 'src/app/interfaces/session-id';
 import { totalDocsGenerados } from 'src/app/interfaces/session-id';
 import { environment } from 'src/environments/environment';
 
@@ -18,6 +18,7 @@ export class PrincipalComponent {
   showUnderConstructionDialog: boolean = false;
   totalConversaciones: number = 0;
   totalDocsGenerados: number = 0;
+  totalExpCalificados: number = 0;
 
   constructor(
       private router: Router,private loginService: LoginService
@@ -27,6 +28,7 @@ export class PrincipalComponent {
   ngOnInit(): void {
     this.consultarTotalConversaciones();
     this.consultarTotalDocsGenerados();
+    this.consultarTotalExpCalificados();
   }
 
   navegarConsultaIA() {
@@ -38,6 +40,10 @@ export class PrincipalComponent {
 
   navegarMetricasDocumentosGenerados() {
     this.router.navigate(['/metricas']);  // Ruta estática
+  }
+
+  navegarCalificacion() {
+    this.router.navigate(['/expedientes/calificar-demanda']);
   }
 
   abrirDialogEnConstruccion() {
@@ -57,6 +63,16 @@ export class PrincipalComponent {
     this.loginService.getTotalDocsGenerados().subscribe({
       next: (data: totalDocsGenerados) => {
         this.totalDocsGenerados = data.totalDocsGenerados;
+      },
+      error: (err) => {
+        console.error('Error al obtener total de documentos generados:', err);
+      }
+    });
+  }
+  consultarTotalExpCalificados() {
+    this.loginService.getTotalExpCalificados().subscribe({
+      next: (data: totalDemandasCalificadas) => {
+        this.totalExpCalificados = data.totalDemandasCalificadas;
       },
       error: (err) => {
         console.error('Error al obtener total de documentos generados:', err);
