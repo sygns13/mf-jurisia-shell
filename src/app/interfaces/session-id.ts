@@ -24,6 +24,12 @@ export interface UserSession {
     tipoUser: string;
     token: TokenData; // Relación con la interfaz TokenData
 }
+export interface ApiResponse<T> {
+    success: boolean;
+    message: string | null;
+    result: T;
+    time: number;
+  }
 export interface totalConversaciones {
     totalConversaciones: number;
   }
@@ -32,6 +38,9 @@ export interface totalConversaciones {
   }
   export interface totalDemandasCalificadas {
     totalDemandasCalificadas: number;
+  }
+  export interface totalDemandasSentencias {
+    totalDemandasSentencias: number;
   }
 export interface TokenData {
     access_token: string;

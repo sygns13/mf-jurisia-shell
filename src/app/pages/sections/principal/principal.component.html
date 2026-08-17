@@ -67,6 +67,23 @@
             </div>
         </a>
     </div>
+    <div class="col-span-12 lg:col-span-6 xl:col-span-4">
+        <a (click)="navegarSentencias()" style="cursor: pointer;">
+            <div class="card mb-0">
+                <div class="flex justify-between mb-4">
+                    <div>
+                        <span class="font-title block dark:text-surface-0 font-medium mb-4">SENTENCIAS</span>
+                        <div class="text-surface-900 dark:text-surface-0 font-medium text-xl text-muted-color">Generar Sentencias</div>
+                    </div>
+
+                    <div class="flex items-center justify-center bg-teal-100 dark:bg-teal-400/10 rounded-border" style="width: 5rem; height: 5rem;">
+                        <i class="pi pi-verified !text-teal-500 !text-xl text-[3rem]" style="font-size: 3rem!important;"></i>
+                      </div>
+                </div>
+                <span class="text-primary font-medium">{{ totalExpSentenciados }} Sentencias Realizadas</span>
+            </div>
+        </a>
+    </div>
     <!--<div class="col-span-12 lg:col-span-6 xl:col-span-3">
         <div class="card mb-0">
             <div class="flex justify-between mb-4">

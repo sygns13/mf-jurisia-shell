@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 const environment = (window as any).__env as any;
 import { Router } from '@angular/router';
 import { IUserData } from '../layout/interfaces/user-data';
-import { totalConversaciones } from '../interfaces/session-id';
+import { ApiResponse, totalConversaciones } from '../interfaces/session-id';
 import { totalDocsGenerados,totalDemandasCalificadas } from '../interfaces/session-id';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -62,12 +62,19 @@ export class LoginService {
   }
 
   getTotalConversation(): Observable<totalConversaciones> {
-    return this.http.get<totalConversaciones>(`${baseUrl}/chatgpt/gettotaloperaciones`);
+    // gemini-chat responde con envoltorio { success, message, result, time }
+    return this.http.get<ApiResponse<totalConversaciones>>(`${baseUrl}/gemini-chat/gettotaloperaciones`)
+      .pipe(
+        map(res => res?.result ?? { totalConversaciones: 0 })
+      );
   }
   getTotalDocsGenerados(): Observable<totalDocsGenerados> {
     return this.http.get<totalDocsGenerados>(`${baseUrlM}/documento-generado-ia/gettotaloperaciones`);
   }
   getTotalExpCalificados(): Observable<totalDemandasCalificadas> {
     return this.http.get<totalDemandasCalificadas>(`${baseUrlM}/demandas-calificadas/gettotaloperaciones`);
+  }
+  getTotalExpSentenciados(): Observable<any> {
+    return this.http.get<any>(`${baseUrlM}/demandas-sentencias/gettotaloperaciones`);
   }
 }

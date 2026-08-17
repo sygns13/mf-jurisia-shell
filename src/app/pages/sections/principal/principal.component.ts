@@ -19,6 +19,7 @@ export class PrincipalComponent {
   totalConversaciones: number = 0;
   totalDocsGenerados: number = 0;
   totalExpCalificados: number = 0;
+  totalExpSentenciados: number = 0;
 
   constructor(
       private router: Router,private loginService: LoginService
@@ -29,6 +30,7 @@ export class PrincipalComponent {
     this.consultarTotalConversaciones();
     this.consultarTotalDocsGenerados();
     this.consultarTotalExpCalificados();
+    this.consultarTotalExpSentenciados();
   }
 
   navegarConsultaIA() {
@@ -44,6 +46,10 @@ export class PrincipalComponent {
 
   navegarCalificacion() {
     this.router.navigate(['/expedientes/calificar-demanda']);
+  }
+
+  navegarSentencias() {
+    this.router.navigate(['/expedientes/sentenciar-demanda']);
   }
 
   abrirDialogEnConstruccion() {
@@ -76,6 +82,22 @@ export class PrincipalComponent {
       },
       error: (err) => {
         console.error('Error al obtener total de documentos generados:', err);
+      }
+    });
+  }
+  consultarTotalExpSentenciados() {
+    this.loginService.getTotalExpSentenciados().subscribe({
+      next: (data: any) => {
+        // Lectura defensiva del total: el nombre exacto del campo lo define el backend.
+        this.totalExpSentenciados =
+          data?.totalDemandasSentencias
+          ?? data?.totalDemandasSentenciadas
+          ?? data?.totalSentencias
+          ?? data?.total
+          ?? 0;
+      },
+      error: (err) => {
+        console.error('Error al obtener total de sentencias realizadas:', err);
       }
     });
   }
